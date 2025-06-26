@@ -1,0 +1,30 @@
+Analise STRIDE da aplicação do curso Alura de Clínicas:
+
+Spoofing - O risco nesse caso seria acessar os resultados de exame de outro paciente,
+seria um risco grave pois são dados sigilosos. Ou mesmo se passar por médico ou especialista
+e acessar os resultados de vários pacientes. Isso poderia usado por um data broker para vender
+os dados sigilosos para interessados diversos ou mesmo para investigar uma pessoa indevidamente, quebrando
+seu direito ao sigilo médico, etc.
+
+Tampering - Uma pessoa poderia por exemplo alterar o resultado de um exame ou dados de um médico para fins de ganhos
+pessoal ou aplicar golpes em pacientes, poderia excluir dados gerando prejuízo financeiro e na reputação da empresa.
+Poderia ser apenas alguém com interesse de causar perda financeira ou um concorrente.
+
+Repudiation - Seria possível agendar exames, consultas, apagar dados sem confirmação de quem fez. Por tanto é importante que seja registrado
+no logs pelo menos as ações mais importantes que alteram os dados assim se garante o não repudio, além obviamente do controle de acesso e autorização.
+Um atacante poderia alterar consultas, exames, ou mesmo validar dados sem poder ser identificado quem e quando foi alterado via logs.
+
+Information Disclosure - O risco seria grave por se tratar de dados pessoais e sigilosos sobre consulta, exames e avaliações
+médicas. Seja diretamente ou através de spoofing um atacante poderia obter esses dados para aplicar golpes ou para vender a um
+data broker.
+
+Denial of service - Esse risco existe se o backend não estiver protegido e puder ser acessado diretamente ou mesmo não existir
+proteção como captcha no frontend, podendo derrubar o sistema para vários usuários. Um atacante poderia obter ganhos ou destruir
+a reputação da empresa.
+
+Elevation of privilege - Todas as ações precisam ser validadas, caso alguém conseguisse executar uma acão como agendar, apagar, ou mesmo
+alterar dados pessoais, seria importante manter esse tipo de controle. Isso poderia gerar vários danos ainda mais se não for logado no sistema
+quem fez, como e quando. Nesse caso é importante garantir que os tokens de sessão são relacionados aos roles especificos e que sejam sempre verificados
+a permissão no backend para cada ação se o usuário tem mesmo permissão, e que isso seja logado, no pior caso.
+Um atacante poderia alterar dados de outras clínicas ou mesmo acessar dados de pacientes que não tem permissão.
+
